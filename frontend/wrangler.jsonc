@@ -1,0 +1,11 @@
+{
+  // Wrangler configuration
+  "name": "amjid-ads-studio",
+  "type": "javascript",
+  "build": {
+    "command": "npm run build"
+  },
+  "env": {
+    "production": {}
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "default",
+  "rsc": false,
+  "typescript": false,
+  "alias": {
+    "@": "./src"
+  }
+}
