@@ -9,49 +9,16 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as ServicesRouteImport } from './routes/services'
-import { Route as ResultsRouteImport } from './routes/results'
-import { Route as PricingRouteImport } from './routes/pricing'
-import { Route as IndustriesRouteImport } from './routes/industries'
-import { Route as FreeAuditRouteImport } from './routes/free-audit'
-import { Route as ContactRouteImport } from './routes/contact'
-import { Route as CaseStudiesRouteImport } from './routes/case-studies'
-import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as CaseStudiesRouteImport } from './routes/case-studies'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as FreeAuditRouteImport } from './routes/free-audit'
+import { Route as ServicesRouteImport } from './routes/services'
 
-const ServicesRoute = ServicesRouteImport.update({
-  id: '/services',
-  path: '/services',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ResultsRoute = ResultsRouteImport.update({
-  id: '/results',
-  path: '/results',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PricingRoute = PricingRouteImport.update({
-  id: '/pricing',
-  path: '/pricing',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const IndustriesRoute = IndustriesRouteImport.update({
-  id: '/industries',
-  path: '/industries',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FreeAuditRoute = FreeAuditRouteImport.update({
-  id: '/free-audit',
-  path: '/free-audit',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CaseStudiesRoute = CaseStudiesRouteImport.update({
-  id: '/case-studies',
-  path: '/case-studies',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -59,9 +26,24 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const CaseStudiesRoute = CaseStudiesRouteImport.update({
+  id: '/case-studies',
+  path: '/case-studies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FreeAuditRoute = FreeAuditRouteImport.update({
+  id: '/free-audit',
+  path: '/free-audit',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -71,9 +53,6 @@ export interface FileRoutesByFullPath {
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
   '/free-audit': typeof FreeAuditRoute
-  '/industries': typeof IndustriesRoute
-  '/pricing': typeof PricingRoute
-  '/results': typeof ResultsRoute
   '/services': typeof ServicesRoute
 }
 export interface FileRoutesByTo {
@@ -82,9 +61,6 @@ export interface FileRoutesByTo {
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
   '/free-audit': typeof FreeAuditRoute
-  '/industries': typeof IndustriesRoute
-  '/pricing': typeof PricingRoute
-  '/results': typeof ResultsRoute
   '/services': typeof ServicesRoute
 }
 export interface FileRoutesById {
@@ -94,34 +70,15 @@ export interface FileRoutesById {
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
   '/free-audit': typeof FreeAuditRoute
-  '/industries': typeof IndustriesRoute
-  '/pricing': typeof PricingRoute
-  '/results': typeof ResultsRoute
   '/services': typeof ServicesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    | '/'
-    | '/about'
-    | '/case-studies'
-    | '/contact'
-    | '/free-audit'
-    | '/industries'
-    | '/pricing'
-    | '/results'
-    | '/services'
+    '/' | '/about' | '/case-studies' | '/contact' | '/free-audit' | '/services'
   fileRoutesByTo: FileRoutesByTo
   to:
-    | '/'
-    | '/about'
-    | '/case-studies'
-    | '/contact'
-    | '/free-audit'
-    | '/industries'
-    | '/pricing'
-    | '/results'
-    | '/services'
+    '/' | '/about' | '/case-studies' | '/contact' | '/free-audit' | '/services'
   id:
     | '__root__'
     | '/'
@@ -129,9 +86,6 @@ export interface FileRouteTypes {
     | '/case-studies'
     | '/contact'
     | '/free-audit'
-    | '/industries'
-    | '/pricing'
-    | '/results'
     | '/services'
   fileRoutesById: FileRoutesById
 }
@@ -141,61 +95,16 @@ export interface RootRouteChildren {
   CaseStudiesRoute: typeof CaseStudiesRoute
   ContactRoute: typeof ContactRoute
   FreeAuditRoute: typeof FreeAuditRoute
-  IndustriesRoute: typeof IndustriesRoute
-  PricingRoute: typeof PricingRoute
-  ResultsRoute: typeof ResultsRoute
   ServicesRoute: typeof ServicesRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/services': {
-      id: '/services'
-      path: '/services'
-      fullPath: '/services'
-      preLoaderRoute: typeof ServicesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/results': {
-      id: '/results'
-      path: '/results'
-      fullPath: '/results'
-      preLoaderRoute: typeof ResultsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/pricing': {
-      id: '/pricing'
-      path: '/pricing'
-      fullPath: '/pricing'
-      preLoaderRoute: typeof PricingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/industries': {
-      id: '/industries'
-      path: '/industries'
-      fullPath: '/industries'
-      preLoaderRoute: typeof IndustriesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/free-audit': {
-      id: '/free-audit'
-      path: '/free-audit'
-      fullPath: '/free-audit'
-      preLoaderRoute: typeof FreeAuditRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/case-studies': {
-      id: '/case-studies'
-      path: '/case-studies'
-      fullPath: '/case-studies'
-      preLoaderRoute: typeof CaseStudiesRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -205,11 +114,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/case-studies': {
+      id: '/case-studies'
+      path: '/case-studies'
+      fullPath: '/case-studies'
+      preLoaderRoute: typeof CaseStudiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/free-audit': {
+      id: '/free-audit'
+      path: '/free-audit'
+      fullPath: '/free-audit'
+      preLoaderRoute: typeof FreeAuditRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -221,20 +151,8 @@ const rootRouteChildren: RootRouteChildren = {
   CaseStudiesRoute: CaseStudiesRoute,
   ContactRoute: ContactRoute,
   FreeAuditRoute: FreeAuditRoute,
-  IndustriesRoute: IndustriesRoute,
-  PricingRoute: PricingRoute,
-  ResultsRoute: ResultsRoute,
   ServicesRoute: ServicesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { createStart } from '@tanstack/react-start'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-  }
-}
