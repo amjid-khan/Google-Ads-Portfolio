@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { Calendar, Mail, MessageCircle, Send, Sparkles, Facebook, Instagram, Linkedin } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
@@ -17,7 +17,7 @@ export const Route = createFileRoute("/contact")({
 });
 
 function ContactPage() {
-  const [submitted, setSubmitted] = useState(false);
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -32,39 +32,33 @@ function ContactPage() {
       <section className="px-5 sm:px-6 lg:px-8 pb-10">
         <div className="mx-auto max-w-7xl grid lg:grid-cols-3 gap-6">
           <div className="lg:col-span-2 rounded-3xl glass-strong p-8 md:p-10">
-            {submitted ? (
-              <div className="text-center py-16">
-                <Sparkles className="h-10 w-10 mx-auto text-primary-glow" />
-                <h3 className="mt-4 text-2xl font-bold gradient-text">Thanks for reaching out!</h3>
-                <p className="mt-3 text-muted-foreground">I'll get back to you within 24 hours.</p>
-              </div>
-            ) : (
-              <form
-                onSubmit={async (e) => {
-                  e.preventDefault();
-                  setError("");
-                  setLoading(true);
-                  try {
-                    const fd = new FormData(e.currentTarget);
-                    await submitContact({
-                      name: String(fd.get("name") ?? ""),
-                      email: String(fd.get("email") ?? ""),
-                      phone: String(fd.get("phone") ?? ""),
-                      businessType: String(fd.get("businessType") ?? ""),
-                      budget: String(fd.get("budget") ?? ""),
-                      message: String(fd.get("message") ?? ""),
-                      source: "contact-page",
-                    });
-                    setSubmitted(true);
-                    e.currentTarget.reset();
-                  } catch (err) {
-                    setError("Something went wrong. Please try again in a minute.");
-                  } finally {
-                    setLoading(false);
-                  }
-                }}
-                className="grid sm:grid-cols-2 gap-4"
-              >
+            <form
+              onSubmit={async (e) => {
+                e.preventDefault();
+                setError("");
+                setLoading(true);
+                try {
+                  const fd = new FormData(e.currentTarget);
+                  await submitContact({
+                    name: String(fd.get("name") ?? ""),
+                    email: String(fd.get("email") ?? ""),
+                    phone: String(fd.get("phone") ?? ""),
+                    businessType: String(fd.get("businessType") ?? ""),
+                    budget: String(fd.get("budget") ?? ""),
+                    message: String(fd.get("message") ?? ""),
+                    source: "contact-page",
+                  });
+
+                  e.currentTarget.reset();
+                  navigate({ to: "/thank-you", search: { type: "contact" } });
+                } catch (err) {
+                  setError("Something went wrong. Please try again in a minute.");
+                } finally {
+                  setLoading(false);
+                }
+              }}
+              className="grid sm:grid-cols-2 gap-4"
+            >
                 <Field label="Name" name="name" required />
                 <Field label="Email" name="email" type="email" required />
                 <Field label="Phone / WhatsApp" name="phone" type="tel" required />
@@ -116,13 +110,12 @@ function ContactPage() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-primary to-accent px-6 py-3.5 font-semibold text-primary-foreground glow-primary hover:scale-[1.01] transition-transform"
+                    className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-primary to-accent px-6 py-3.5 font-semibold text-primary-foreground glow-primary hover:scale-[1.01] transition-transform disabled:cursor-not-allowed disabled:opacity-70"
                   >
                     <Send className="h-4 w-4" /> {loading ? "Sending..." : "Let's Talk"}
                   </button>
                 </div>
               </form>
-            )}
           </div>
 
           <div className="space-y-4">
