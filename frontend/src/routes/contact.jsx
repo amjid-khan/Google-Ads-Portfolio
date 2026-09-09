@@ -127,7 +127,7 @@ function ContactPage() {
 
           <div className="space-y-4">
             <a
-              href="https://wa.me/923000000000"
+              href="https://wa.me/923119091924"
               className="flex items-center gap-4 rounded-2xl p-5 ring-glow"
               style={{ background: "linear-gradient(135deg, rgba(37,211,102,0.18), rgba(18,140,126,0.1))", border: "1px solid rgba(37,211,102,0.35)" }}
             >
@@ -136,32 +136,19 @@ function ContactPage() {
               </span>
               <div>
                 <div className="font-semibold">WhatsApp</div>
-                <div className="text-xs text-muted-foreground">+92 300 0000000</div>
+                <div className="text-xs text-muted-foreground">0311 9091924</div>
               </div>
             </a>
 
-            <a href="mailto:hello@amjidkurmywal.com" className="flex items-center gap-4 rounded-2xl glass p-5 ring-glow">
+            <a href="mailto:amjidkurmywal170@gmail.com" className="flex items-center gap-4 rounded-2xl glass p-5 ring-glow">
               <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent">
                 <Mail className="h-5 w-5 text-primary-foreground" />
               </span>
               <div>
                 <div className="font-semibold">Email</div>
-                <div className="text-xs text-muted-foreground">hello@amjidkurmywal.com</div>
+                <div className="text-xs text-muted-foreground">amjidkurmywal170@gmail.com</div>
               </div>
             </a>
-
-            <div className="rounded-2xl glass-strong p-5">
-              <div className="flex items-center gap-2">
-                <Calendar className="h-5 w-5 text-primary-glow" />
-                <div className="font-semibold">Book a call</div>
-              </div>
-              <p className="mt-2 text-xs text-muted-foreground">
-                Prefer to talk? Calendly embed coming soon — or use WhatsApp / email above.
-              </p>
-              <div className="mt-4 aspect-video rounded-xl bg-background/40 grid-bg flex items-center justify-center">
-                <Calendar className="h-10 w-10 text-primary-glow/50" />
-              </div>
-            </div>
 
             <div className="rounded-2xl glass p-5">
               <div className="text-xs uppercase tracking-wider text-muted-foreground">Follow</div>

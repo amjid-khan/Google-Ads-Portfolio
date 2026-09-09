@@ -3,11 +3,9 @@ import { ArrowRight } from "lucide-react";
 
 export function CTASection({
   title = "Ready to Grow Your Business?",
-  subtitle = "Let's audit your Google Ads account for free and uncover hidden growth opportunities.",
-  primaryLabel = "Get My Free Audit Now",
-  primaryTo = "/free-audit",
-  secondaryLabel = "Book a Call",
-  secondaryTo = "/contact",
+  subtitle = "Let's talk about your goals and build a smarter Google Ads strategy for your brand.",
+  primaryLabel = "Book a Strategy Call",
+  primaryTo = "/contact",
 }) {
   return (
     <section className="relative px-5 sm:px-6 lg:px-8 py-20">
@@ -33,24 +31,18 @@ export function CTASection({
                 {subtitle}
               </p>
 
-              {/* Buttons */}
-              <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+              {/* Button */}
+              <div className="mt-8 flex items-center justify-center">
 
-                {/* Primary Button (simple + smooth hover) */}
+                {/* Primary Button */}
                 <Link
                   to={primaryTo}
-                  className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 font-semibold text-primary-foreground transition-all duration-200 hover:bg-primary/90 hover:translate-y-[-1px] active:translate-y-0 shadow-none"
+                  className="group relative overflow-hidden inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 font-semibold text-primary-foreground transition-colors duration-500 shadow-none before:absolute before:inset-y-0 before:left-0 before:w-0 before:bg-accent before:transition-all before:duration-500 hover:before:w-full"
                 >
-                  {primaryLabel}
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-
-                {/* Secondary Button */}
-                <Link
-                  to={secondaryTo}
-                  className="inline-flex items-center gap-2 rounded-xl border border-border bg-transparent px-6 py-3 font-semibold text-foreground transition-all duration-200 hover:bg-secondary hover:translate-y-[-1px] active:translate-y-0 shadow-none"
-                >
-                  {secondaryLabel}
+                  <span className="relative z-10 flex items-center gap-2">
+                    {primaryLabel}
+                    <ArrowRight className="h-4 w-4" />
+                  </span>
                 </Link>
 
               </div>

@@ -6,7 +6,6 @@ const pages = [
   { to: "/about", label: "About" },
   { to: "/services", label: "Services" },
   { to: "/case-studies", label: "Case Studies" },
-  { to: "/free-audit", label: "Free Audit" },
   { to: "/contact", label: "Contact" },
 ];
 
@@ -83,8 +82,8 @@ export function Footer() {
               Get in touch
             </h4>
             <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
-              <li className="flex items-center gap-2"><Mail className="h-4 w-4 text-primary-glow" />hello@amjidkurmywal.com</li>
-              <li className="flex items-center gap-2"><MessageCircle className="h-4 w-4 text-primary-glow" /> WhatsApp: +92 300 0000000</li>
+              <li className="flex items-center gap-2"><Mail className="h-4 w-4 text-primary-glow" />amjidkurmywal170@gmail.com</li>
+              <li className="flex items-center gap-2"><MessageCircle className="h-4 w-4 text-primary-glow" /> WhatsApp: 0311 9091924</li>
               <li className="flex items-center gap-2"><MapPin className="h-4 w-4 text-primary-glow" /> Pakistan</li>
             </ul>
             <div className="mt-5 flex items-center gap-3">

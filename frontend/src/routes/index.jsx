@@ -310,17 +310,17 @@ function HomePage() {
 
               <div className="mt-8 flex flex-col sm:flex-row items-start gap-3">
                 <Link
-                  to="/contact"
+                  to="/case-studies"
                   className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary to-accent px-6 py-3 font-semibold text-primary-foreground glow-primary hover:scale-[1.02] transition-transform"
                 >
-                  Book a Free Call <ArrowRight className="h-4 w-4" />
+                  See Case Study <ArrowRight className="h-4 w-4" />
                 </Link>
 
                 <Link
-                  to="/free-audit"
+                  to="/contact"
                   className="inline-flex items-center gap-2 rounded-xl glass px-6 py-3 font-semibold text-foreground hover:bg-secondary/70 transition-colors"
                 >
-                  Get Free Audit
+                  Book a Call
                 </Link>
               </div>
 
